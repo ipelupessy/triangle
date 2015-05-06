@@ -106,7 +106,7 @@ class TriangulateIO(object):
         return numpy.array(self.c.pointlist[0:N])
     @pointlist.setter
     def pointlist(self,value):
-        self.c.numberofpoints=value.size/2
+        self.c.numberofpoints=value.size//2
         self.c.assign(self.c.pointlist, value)
     
     @property 
@@ -117,7 +117,7 @@ class TriangulateIO(object):
     @pointattributelist.setter
     def pointattributelist(self,value):
         assert value.size%self.c.numberofpoints==0
-        self.c.numberofpointattributes=value.size/self.c.numberofpoints
+        self.c.numberofpointattributes=value.size//self.c.numberofpoints
         assert value.size==self.c.numberofpoints*self.c.numberofpointattributes
         self.c.assign(self.c.pointattributelist, value)
 
@@ -138,7 +138,7 @@ class TriangulateIO(object):
         return numpy.array(self.c.trianglelist[0:N])
     @trianglelist.setter
     def trianglelist(self,value):
-        self.c.numberoftriangles=value.size/self.c.numberofcorners
+        self.c.numberoftriangles=value.size//self.c.numberofcorners
         self.c.assign(self.c.trianglelist, value)
 
     @property
@@ -149,7 +149,7 @@ class TriangulateIO(object):
     @triangleattributelist.setter
     def triangleattributelist(self,value):
         assert value.size%self.c.numberoftriangles==0
-        self.c.numberoftriangleattributes=value.size/self.c.numberoftriangles
+        self.c.numberoftriangleattributes=value.size//self.c.numberoftriangles
         assert value.size==self.c.numberoftriangles*self.c.numberoftriangleattributes
         self.c.assign(self.c.triangleattributelist, value)
 
@@ -193,7 +193,7 @@ class TriangulateIO(object):
         return numpy.array(self.c.segmentlist[0:N])
     @segmentlist.setter
     def segmentlist(self,value):
-        self.c.numberofsegments=value.size/2        
+        self.c.numberofsegments=value.size//2        
         self.c.assign(self.c.segmentlist, value)
 
     @property
@@ -213,7 +213,7 @@ class TriangulateIO(object):
         return numpy.array(self.c.holelist[0:N])
     @holelist.setter
     def holelist(self,value):
-        self.c.numberofholes=value.size/2        
+        self.c.numberofholes=value.size//2        
         if value.size==0:
             self.c.cleanup(self.c.holelist)
         else:
@@ -226,7 +226,7 @@ class TriangulateIO(object):
         return numpy.array(self.c.regionlist[0:N])
     @regionlist.setter
     def regionlist(self,value):
-        self.c.numberofregions=value.size/4
+        self.c.numberofregions=value.size//4
         if value.size==0:
             self.c.cleanup(self.c.regionlist)
         else:
