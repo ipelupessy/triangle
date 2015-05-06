@@ -10,10 +10,10 @@ known issues:
 import os
 import ctypes
 import numpy
-import sysconfig
+import distutils.sysconfig
 
 root = os.path.abspath(os.path.dirname(__file__))
-librarypath=os.path.join(root,"libtriangle"+sysconfig.get_config_var('SO'))
+librarypath=os.path.join(root,"libtriangle"+distutils.sysconfig.get_config_var('SO'))
 libtriangle=ctypes.CDLL(librarypath)
 
 double_pointer=ctypes.POINTER(ctypes.c_double)
