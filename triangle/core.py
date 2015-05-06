@@ -248,7 +248,8 @@ class TriangulateIO(object):
         return numpy.array(self.c.normlist[0:N])
 
 def triang(switch, in_, out_, vorout=None):
-    libtriangle.triangulate(switch, in_.c, out_.c, vorout)
+    libtriangle.triangulate(switch, in_.c, out_.c, 
+      None if vorout is None else vorout.c)
 
     # Copy whole array to avoid freeing of non-allocated pointers
     if out_.c.holelist:
