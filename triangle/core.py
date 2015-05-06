@@ -258,23 +258,6 @@ def triang(switch, in_, out_, vorout=None):
       out_.c.copy(out_.c.regionlist,out_.c.numberofregions*2)
  
 if __name__=="__main__":
-  t=triangulate_io()
-  print t.pointlist, bool(t.pointlist),type(t.pointlist) is double_pointer
-  import numpy
-  a=numpy.zeros(10)
-  t.pointlist=a.ctypes.data_as(double_pointer)
-  print t.pointlist, bool(t.pointlist),type(t.pointlist) is double_pointer
-  print t.pointlist[0:10]
-  print dir(t)
-  print libtriangle.trifree
-  print libtriangle.trimalloc
-  p=to_int_p(libtriangle.trimalloc(10))
-  print p[0],bool(p)
-  print libtriangle.trifree(p)
-  print
-  libtriangle.dummy_alloc.restype=ctypes.c_voidp
-  a=libtriangle.dummy_alloc(300000)
+  a=libtriangle.trimalloc(300000)
   p=to_int_p(a)
-  print a
-  print bool(p)
-  print libtriangle.trifree(p)
+  libtriangle.trifree(p)
