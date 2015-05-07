@@ -13,8 +13,7 @@ import numpy
 import distutils.sysconfig
 
 root = os.path.abspath(os.path.dirname(__file__))
-librarypath=os.path.join(root,"libtriangle"+distutils.sysconfig.get_config_var('SO'))
-libtriangle=ctypes.CDLL(librarypath)
+libtriangle=numpy.ctypeslib.load_library("libtriangle",root)
 
 double_pointer=ctypes.POINTER(ctypes.c_double)
 int_pointer=ctypes.POINTER(ctypes.c_int)
