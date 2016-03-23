@@ -36,7 +36,8 @@ def triangulate(tri, opts=''):
               ('trianglelist', 'triangles', 'int32', 3),
               ('trianglearealist', 'triangle_max_area', 'double', 1),
               ('pointmarkerlist', 'vertex_markers', 'int32', 1),
-              ('segmentmarkerlist', 'segment_markers', 'int32', 1),)
+              ('segmentmarkerlist', 'segment_markers', 'int32', 1),
+              ('neighborlist','neighbors','int32',3))
 
     if ('vertices' not in tri) or (len(tri['vertices'])<3) :
         raise ValueError('Input must have at least three input vertices.')
