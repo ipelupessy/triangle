@@ -4,7 +4,8 @@ define_macros = [('VOID', 'void'),
                  ('REAL', 'double'),
                  ('NO_TIMER', 1),
                  ('TRILIBRARY', 1),
-                 ('ANSI_DECLARATORS', 1)]
+                 ('ANSI_DECLARATORS', 1),
+                 ('EXTERNAL_TEST',1)]
 
 setup(name='triangle',
     packages=['triangle'],
@@ -31,7 +32,7 @@ setup(name='triangle',
     url='http://dzhelil.info/triangle',
     requires = ['numpy(>=1.5.0)'],
     ext_modules=[
-                 Extension('triangle.libtriangle', ['c/triangle.c', ],
+                 Extension('triangle.libtriangle', ['c/triangle.c', 'c/external_test.c', ],
                            include_dirs = ['c'],
                            define_macros = define_macros)
     ]
