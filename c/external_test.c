@@ -40,7 +40,7 @@ REAL area;                                      /* The area of the triangle. */
   }
 }
 
-int (*external_triangle_test)()=triunsuitable_;
+int (*triangle_refinement_test)()=triunsuitable_;
 
 #ifdef ANSI_DECLARATORS
 int triunsuitable(vertex triorg, vertex tridest, vertex triapex, REAL area)
@@ -52,7 +52,7 @@ vertex triapex;                               /* The triangle's apex vertex. */
 REAL area;                                      /* The area of the triangle. */
 #endif /* not ANSI_DECLARATORS */
 {
-  return external_triangle_test(triorg,tridest,triapex,area);
+  return triangle_refinement_test(triorg,tridest,triapex,area);
 }
 
 #else /* not EXTERNAL_TEST */
