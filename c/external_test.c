@@ -7,7 +7,7 @@ typedef REAL *vertex;
 #ifdef ANSI_DECLARATORS
 int triunsuitable_(vertex triorg, vertex tridest, vertex triapex, REAL area)
 #else /* not ANSI_DECLARATORS */
-int triunsuitable(triorg, tridest, triapex, area)
+int triunsuitable_(triorg, tridest, triapex, area)
 vertex triorg;                              /* The triangle's origin vertex. */
 vertex tridest;                        /* The triangle's destination vertex. */
 vertex triapex;                               /* The triangle's apex vertex. */
